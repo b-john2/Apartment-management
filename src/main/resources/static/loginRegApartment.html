@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%;" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="./loginRegApartment.js"></script>
+    <link rel="stylesheet" href="./login.css">
+</head>
+
+<body class="bg-cls">
+    <!-- MultiStep Form -->
+    <div class="container-fluid" id="grad1">
+        <div class="row" id="loginPageId">
+            <div class="col-md-12 p-0 bg-img-cls full-height-cls d-flex justify-content-center">
+                <div class="col-md-4 login-form-div-cls p-0">
+                    <div class="modal-header bg-info">
+                        <h4 class="modal-title text-white">Login</h4>
+                    </div>
+                    <form class="login-form-cls formCls mt-3" style="background-color: transparent;">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="userNameId" placeholder="Enter User Name"
+                                name="userName">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="pwdId" placeholder="Enter Password"
+                                name="pswd">
+                        </div>
+                        <button type="button" class="btn btn-info btn-block text-white"
+                            onclick="loginUser()">Login</button>
+                        <div class="form-group mt-2" style="text-align: center;">
+                            <label class="form-check-label text-black">
+                                Don't have an account? <a type="button" class="text-info"
+                                    onclick="regPage('reg')">Register
+                                    Here</a>
+                            </label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-0">
+            <div class="col-11 col-sm-9 col-md-7 col-lg-6 text-center p-0 mt-3 mb-2">
+                <div class="card px-0 pt-4 pb-0 mt-3 mb-3" id="regPageId">
+                    <h2><strong>Sign Up Your User Account</strong></h2>
+                    <p>Fill all form field to go to next step</p>
+                    <div class="row">
+                        <div class="col-md-12 mx-0">
+                            <form id="msform" class="formCls">
+                                <!-- progressbar -->
+                                <ul id="progressbar">
+                                    <li class="active" id="account"><strong>Account</strong></li>
+                                    <li id="personal"><strong>Personal</strong></li>
+                                    <!-- <li id="payment"><strong>Property Details</strong></li> -->
+                                    <li id="confirm"><strong>Finish</strong></li>
+                                </ul>
+                                <!-- fieldsets -->
+                                <fieldset id="accountFieldId">
+                                    <div class="form-card">
+                                        <h2 class="fs-title">Account Information</h2>
+                                        <input type="email" name="email" placeholder="Email Id" />
+                                        <input type="text" name="uname" placeholder="User Name" />
+                                        <input type="password" name="pwd" placeholder="Create Password" />
+
+                                    </div>
+                                    <input type="button" name="cancel" onclick="regPage('login')"
+                                        class="action-button cancel-cls" value="Cancel" />
+                                    <input type="button" name="next" class="next action-button" value="Next Step" />
+
+                                </fieldset>
+                                <fieldset id="personalDetailsId">
+                                    <div class="form-card">
+                                        <h2 class="fs-title">Personal Information</h2>
+                                        <input type="text" name="fname" placeholder="First Name" />
+                                        <input type="text" name="lname" placeholder="Last Name" />
+                                        <input type="text" name="phno" placeholder="Contact No." />
+                                        <input type="text" name="phno2" placeholder="Alternate Contact No." />
+                                        <select name="userType" id="userTypeId">
+                                            <option value="">Please Select User Type</option>
+                                            <option value="LANDLORDS">Landlords</option>
+                                            <option value="TENANTS">Tenants</option>
+                                        </select>
+                                    </div>
+                                    <input type="button" name="previous" class="previous action-button-previous"
+                                        value="Previous" />
+                                    <input type="button" name="cancel" onclick="regPage('login')"
+                                        class="action-button cancel-cls" value="Cancel" />
+                                    <input type="button" name="make_payment" class="next action-button submit"
+                                        value="Confirm" />
+
+                                </fieldset>
+
+                                <fieldset id="successRegId">
+                                    <div class="form-card">
+                                        <h2 class="fs-title text-center">Success !</h2>
+                                        <div class="row justify-content-center">
+                                            <div class="col-3">
+                                                <img src="https://img.icons8.com/color/96/000000/ok--v2.png"
+                                                    class="fit-image">
+                                            </div>
+                                        </div>
+                                        <div class="row justify-content-center">
+                                            <div class="col-7 text-center">
+                                                <h5>You Have Successfully Signed Up</h5>
+                                            </div>
+                                            <div class="mt-2 col-7" style="text-align: center;">
+                                                <label class="form-check-label text-black"><a type="button"
+                                                        class="text-info" onclick="regPage('login')">Login
+                                                        Here</a>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
